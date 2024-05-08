@@ -1,0 +1,2 @@
+
+from .indexing import IndexPipeline

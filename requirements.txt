@@ -1,0 +1,5 @@
+haystack-ai[all]
+chromadb
+chroma-haystack
+Ollama-haystack
+pytest
