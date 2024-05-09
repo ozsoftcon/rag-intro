@@ -26,6 +26,7 @@ setuptools.setup(
     packages=setuptools.find_packages(include=[
         'rag_pipeline',
         'rag_pipeline.index_pipeline',
+        'rag_pipeline.retrieval',
         'rag_pipeline.utility'
     ]),
     python_requires=">=3.9, <4.0"
