@@ -64,10 +64,30 @@ where
 
 The database has 117352 movies.
 
-Complete indexing of the data (no optimization) took 654 minutes. The compute spec (the compute was running the indexing pipeline and the Ollama service) was
+Complete indexing of the data (no optimization) took 654 minutes (~11 hours). The compute spec (the compute was running the indexing pipeline and the Ollama service) was
 
 - System : `macOS 14.4.1`
 - Kernel : `Darwitn 23.4.0`
 - Chip   : Apple M3 Max
 - Cores  : 14
 - Memory : 36 GB
+
+### Second step: Running the RAG with a query
+
+```
+<env-name> $ python run_rag.py --path PATH --collection COLLECTION --topk TOPK <your_query>
+```
+
+where
+
+- `<your_query>` is the question you want to ask; this needs to be within a double quote
+- `PATH` is the full path to the Chroma DB persist location; it can be any location within disk.
+- `COLLECTION` is a name for the indexed collection within Chroma DB
+- `TOPK` is an integer value determing the number of documents in the database to consider before answering a question
+
+A sample question `"Is there any movie about political assasination?"` receives this answer:
+
+
+> The provided documents do not mention a movie specifically about political assassinations. However, some documents discuss themes related to revenge, power struggles, and deception that could be elements in a movie about political assassinations. For instance, the document "Ecevit, Bilal" suggests a question related to seeking revenge, while "Nina Vincent" mentions brothers wanting to exploit boxing for their own gain, which could potentially involve scheming or violent means. Additionally, the document "When Angeline and her son Tim comes to Lifjord" discusses hidden pasts and potential cover-ups that could be relevant to a political assassination plot.
+
+This specific answer took 6.81 seconds.
