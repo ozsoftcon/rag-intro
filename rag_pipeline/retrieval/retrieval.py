@@ -14,13 +14,17 @@ GENERATOR_ENDPOINT = environ.get(
     "GENERATOR_ENDPOINT", "http://localhost:11434/api/generate"
 )
 
+RETRIEVAL_TOP_K = 20
+
 class RAGPipeline():
 
     def __init__(
             self,
             persist_path: str,
-            collection_name: str
+            collection_name: str,
+            top_k: int = RETRIEVAL_TOP_K
     ):
+        self._top_k = top_k
         self._query_embedder = QueryEmbedder(
             embedding_model=LANGUAGE_MODEL,
             embedding_endpoint=EMBEDDER_ENDPOINT
@@ -28,7 +32,8 @@ class RAGPipeline():
 
         self._document_retriever = DocumentRetriever(
             persist_path=persist_path,
-            collection_name=collection_name
+            collection_name=collection_name,
+            top_k = self._top_k
         )
 
         self._prompt_builder = RAGPromptBuilder()

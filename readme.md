@@ -53,7 +53,7 @@ This simple example is a slight modification of the pipeline available in [`hays
 ### First Step : Indexing the Data
 
 ```
-<env_name> $ python run_index --path PATH --collection COLLECTION filename
+<env_name> $ python run_index.py --path PATH --collection COLLECTION filename
 ```
 
 where
