@@ -1,7 +1,7 @@
 import sys
 import time
 from argparse import ArgumentParser
-from rag_pipeline.retrieval import RAGPipeline
+from rag_pipeline.generator_pipeline import GeneratorPipeline
 import chromadb
 
 
@@ -37,14 +37,14 @@ def run_rag(args):
 
     query = parsed_args.query
 
-    rag_pipeline = RAGPipeline(
+    generator = GeneratorPipeline(
         persist_path=parsed_args.path,
         collection_name=parsed_args.collection
     )
     
     ## Start a timer
     _start = time.time()
-    response = rag_pipeline.run_rag(query)
+    response = generator.run_rag(query)
     _end = time.time()
     print(f"Answer is available in {(_end-_start)} seconds")
 

@@ -11,7 +11,7 @@ The tools we are going to use are `haystack-ai`, `Ollama + mistral`, `Chroma DB`
 ### Cloning the repo
 
 ```
-$ git clone ...
+$ git clone git@github.com:ozsoftcon/rag-intro.git
 ```
 
 Once you clone the repo move to the directory when code is downloaded. This document will refer to the directory as `$RAG_DIR`

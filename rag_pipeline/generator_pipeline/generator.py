@@ -16,7 +16,7 @@ GENERATOR_ENDPOINT = environ.get(
 
 RETRIEVAL_TOP_K = 20
 
-class RAGPipeline():
+class GeneratorPipeline():
 
     def __init__(
             self,

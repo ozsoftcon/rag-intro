@@ -1,2 +1,0 @@
-
-from .retrieval import RAGPipeline
